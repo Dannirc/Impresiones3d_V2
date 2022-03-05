@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>Indigo.crea.ar</title>
+<link href="../css/bootstrap.css" rel="stylesheet">
+
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/footer.css" rel="stylesheet">
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div th:insert="layout/header :: nav"></div>
+
+	<center style="margin-top: 30px;">
+		<a
+			style="text-decoration: none; padding: 10px 15px; border-radius: 5px; color: indigo; background-color: lightsteelblue; font-size: 15px;"
+			href="../cliente/cargar-pedido">Cotiza tu archivo 3D</a> <a
+			style="text-decoration: none; padding: 10px 15px; border-radius: 5px; color: indigo; background-color: lightsteelblue; font-size: 15px;"
+			href="/Autor/Editar">Instructivo para principiantes</a> <a
+			style="text-decoration: none; padding: 10px 15px; border-radius: 5px; color: indigo; background-color: lightsteelblue; font-size: 15px;"
+			href="/Autor/Eliminar">Tienda</a>
+	</center>
+	<div class='main'></div>
+
+
+	<div th:insert="layout/footer :: footer"></div>
+
+</body>
+</html>

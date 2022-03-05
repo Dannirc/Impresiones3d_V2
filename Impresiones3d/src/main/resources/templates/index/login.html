@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Indigo.crea.ar - Iniciar sesión</title>
+
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="../adminlte-3.0.4/plugins/fontawesome-free/css/all.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="../adminlte-3.0.4/css/adminlte.min.css">
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/footer.css" rel="stylesheet">
+	<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+</head>
+
+<body>
+	<!-- <div th:insert="layout/header :: nav"></div> -->
+	<div class="header" th:fragment="nav">
+	<div class="container">
+		<div class="row">
+			<div>
+				
+					<div class="logo">
+						<a href="../index"><img src="../Images/IndigoLogo.png" alt="" /></a>
+					</div>
+					
+						<!--<script type="text/javascript" src="../js/responsive-nav.js"></script>-->
+					</div>
+				<!--	<div class="clear"></div> -->
+			</div>
+				
+
+		
+					
+					
+					
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				</ul>
+				</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+	<div class="adminImage">
+	<div>
+	<div class="row vh-100 justify-content-center align-items-center">
+	
+		<div class="col-auto bg-light p-5">
+
+
+			<div class="card">
+				<div class="card-body register-card-body">
+					<div th:if="${exito}!=null" class="card text-white bg-success mb-3">
+						<div class="card-body">
+							<h5 class="card-title">Exito</h5>
+							<p class="card-text">Registro Exitoso</p>
+						</div>
+					</div>
+					<p class="login-box-msg">Loguearse!</p>
+					<div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+						<div class="card-body">
+							<h5 class="card-title">Error</h5>
+							<p class="card-text" th:text="${error}"></p>
+						</div>
+					</div>
+					<form th:action="@{/logincheck}" method="post">
+						<div class="input-group mb-3">
+							<input type="email" class="form-control" placeholder="Email" name="email">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-envelope"></span>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							<input type="password" class="form-control" placeholder="Contraseña" name="clave">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-lock"></span>
+								</div>
+							</div>
+						</div>
+						
+							<!-- /.col -->
+							<div class="prueba">
+								<button type="submit" class="btn btn-primary">Ingresar</button>
+							</div>
+							<!-- /.col -->
+						
+					</form>
+
+
+					<div class="prueba">
+					<a href="/usuario/registro" class="text-center">Registrarme</a>
+					</div>
+				</div>
+				<!-- /.form-box -->
+			</div><!-- /.card -->
+		</div>
+		<!-- /.register-box -->
+		</div><!-- /.adminPestana -->
+		</div>
+	</div><!-- /.adminImage -->
+	<!-- jQuery -->
+	<script src="../adminlte-3.0.4/plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../adminlte-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../adminlte-3.0.4/dist/js/adminlte.min.js"></script>
+
+	<div th:insert="layout/footer :: footer"></div>
+</body>
+
+</html>

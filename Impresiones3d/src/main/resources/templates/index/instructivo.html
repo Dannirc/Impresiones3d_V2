@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>Indigo.crea.ar</title>
+<link href="../css/instructivo.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/footer.css" rel="stylesheet">
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+<script
+	src=" 	https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css	"></script>
+<script
+	src="	https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js "></script>
+<script
+	src="			https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+
+
+</head>
+
+<body>
+
+	<!-- <div th:insert="layout/header :: nav"></div> -->
+	
+	<div class="header" th:fragment="nav">
+	<div class="container">
+		<div class="row">
+			<div>
+				
+					<div class="logo">
+						<a href="../index"><img src="../Images/IndigoLogo.png" alt="" /></a>
+					</div>
+					<div class="prueba3" >
+						
+						<div class="login_button">
+						<a href="../login" th:if="${session.usuario==null}">Iniciar sesion</a>
+					</div>
+						<!--<script type="text/javascript" src="../js/responsive-nav.js"></script>-->
+					</div>
+				<!--	<div class="clear"></div> -->
+			</div>
+				
+
+				<div class="prueba2">
+						<div class="login_button"><a href="/logout"   th:if="${session.usuario != null}" class="btn btn-primary">Salir</a></div>
+						<div class="login_button"><a th:href="@{/usuario/modificar-usuario?id={id}(id=${session.usuario.id})}" th:if="${session.usuario!=null}" class="btn btn-primary ">Modifica tus datos</a></div>
+						<div class="login_button"> <a class="login_button" th:if="${session.usuario != null}" th:text="${session.usuario.nombre}"></a></div>
+				</div>	
+					
+					
+					
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				</ul>
+				</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+	<div class='main'></div>
+
+	<div class="container mb-5">
+
+		<div class="text-center mt-5">
+			<h1>Instructivo</h1>
+		</div>
+		<div class="row">
+
+			<div class="col-md-4">
+				<div class="box">
+					<div class="our-services backups">
+						<div class="icon">
+							<img src="https://i.imgur.com/vdH9LKi.png">
+						</div>
+						<h3>Carga de archivo</h3>
+						<p>Registrese y cargue un archivo 3D en formato .stl en la
+							base de datos.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="box">
+					<div class="our-services settings">
+						<div class="icon">
+							<img src="http://i.imgur.com/6NKPrhO.png">
+						</div>
+						<h3>Establezca sus configuraciones</h3>
+						<p>Hay diferentes diámetros de picos para imprimir que van a
+							modificar la calidad de impresion. Cuanto mas pequeño el pico,
+							mas calidad de impresión va a lograrse. La altura de capa es otro
+							párametro que va a determinar la calidad de la pieza segun el
+							pico.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="box">
+					<div class="our-services database">
+						<div class="icon">
+							<img src="http://i.imgur.com/VzjZw9M.png">
+						</div>
+						<h3>Espere la confirmación</h3>
+						<p>El técnico descargará su archivo y creará el presupuesto en
+							base a sus configuraciones establecidas.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--
+			
+			
+		<div class="row">
+					<div class="col-md-4">
+				<div class="box">
+					<div class="our-services speedup">
+						<div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
+						<h4>Speedup</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+					</div>
+				</div>
+			</div>
+
+			
+						<div class="col-md-4">
+				<div class="box">
+					<div class="our-services privacy">
+						<div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
+						<h4>Privacy</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<div class="our-services ssl">
+						<div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
+						<h4>SSL secured</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+					</div>
+				</div>
+			</div>
+ -->
+
+	</div>
+	</div>
+
+
+	<div th:insert="layout/footer :: footer"></div>
+
+</body>
+
+</html>

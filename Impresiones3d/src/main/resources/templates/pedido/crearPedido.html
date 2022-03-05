@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Indigo.crea.ar</title>
+	<link href="../css/footer.css" rel="stylesheet">
+	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="dist/bs-custom-file-input.js"></script>
+	<link href="../css/style.css" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+	<!-- <script src="/static/js/jquery.easydropdown.js"></script> -->
+	<!--start slider -->
+	<link rel="stylesheet" href="../css/fwslider.css" media="all">
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/fwslider.js"></script>
+	<!--end slider -->
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".dropdown img.flag").addClass("flagvisibility");
+
+			$(".dropdown dt a").click(function () {
+				$(".dropdown dd ul").toggle();
+			});
+
+			$(".dropdown dd ul li a").click(function () {
+				var text = $(this).html();
+				$(".dropdown dt a span").html(text);
+				$(".dropdown dd ul").hide();
+				$("#result").html("Selected value is: " + getSelectedValue("sample"));
+			});
+
+			function getSelectedValue(id) {
+				return $("#" + id).find("dt a span.value").html();
+			}
+
+			$(document).bind('click', function (e) {
+				var $clicked = $(e.target);
+				if (!$clicked.parents().hasClass("dropdown"))
+					$(".dropdown dd ul").hide();
+			});
+
+
+			$("#flagSwitcher").click(function () {
+				$(".dropdown img.flag").toggleClass("flagvisibility");
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div th:insert="layout/header :: nav"></div>
+	<div>
+	<div class="adminImage">
+		<div class="row vh-100 justify-content-center align-items-center">
+			<div class="col-auto bg-light p-5">
+				<div class="card card-primary">
+					<div class="card-header">
+						<h3 class="card-title">Cargar Pedido</h3>
+					</div>
+					<!-- /.card-header -->
+					<!-- form start -->
+					<form th:action="@{/pedido/crear-pedido}" method="post" enctype="multipart/form-data">
+						<div class="card-body">
+							<div class="card-body register-card-body">
+								<div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+									<div class="card-body">
+										<h5 class="card-title">Error</h5>
+										<p class="card-text" th:text="${error}"></p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Seleccione Archivo .stl</label>
+									<div class="input-group">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" name="document" required>
+											<label class="custom-file-label" for="exampleInputFile"></label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<p>Parametros de la Pieza</p>
+								</div>
+								<div class="form-group">
+									<label for="selectMaterial">Material</label>
+									<select class="form-control" name="material">
+										<option value="Pla">Pla</option>
+										<option value="Abs">Abs</option>
+										<option value="Petg">Petg</option>
+										<option value="Nylon">Nylon</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="DiametroDeBoquilla">Diametro de la boquilla</label>
+									<select class="form-control" name="diametroDeBoquilla">
+										<option value="0.2">0.2mm</option>
+										<option value="0.4">0.4mm</option>
+										<option value="0.6">0.6mm</option>
+										<option value="0.8">0.8mm</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="VelocidadDeImpresion">Velocidad de Impresión</label>
+									<select class="form-control" name="velocidadDelImpresion">
+										<option value="30">30mm/seg</option>
+										<option value="35">35mm/seg</option>
+										<option value="40">40mm/seg</option>
+										<option value="45">45mm/seg</option>
+										<option value="50">50mm/seg</option>
+										<option value="55">55mm/seg</option>
+										<option value="60">60mm/seg</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="PorcentajeDeRelleno">Porcentaje de Relleno</label>
+									<input type="number" min="1" max="100" class="form-control" name="porcentajeDeRelleno"
+										placeholder="(0-100%)">
+								</div>
+								<div class="form-group">
+									<label for="AlturaDeCapa">Altura de la Capa</label>
+									<input type="number" step="0.01" class="form-control" name="alturaDeCapa"
+										placeholder="numero con decimales">
+								</div>
+								<div class="form-group">
+									<label>Incluir Soporte de la Pieza?</label>
+									<div class="custom-control custom-radio">
+										<input class="custom-control-input" type="radio" id="soporte1" name="soporte"
+											checked="" value="si">
+										<label for="soporte1" class="custom-control-label">Si</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input class="custom-control-input" type="radio" id="soporte2" name="soporte" value="no">
+										<label for="soporte2" class="custom-control-label">No</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Entrega del producto</label>
+									<div class="custom-control custom-radio">
+										<input class="custom-control-input" type="radio" id="envio1"
+											name="envio" value="si">
+										<label for="envio1" class="custom-control-label">Envio a Domicilio</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input class="custom-control-input" type="radio" id="envio2"
+											name="envio" checked="" value="no">
+										<label for="envio2" class="custom-control-label">Retiro por el
+											Local</label>
+									</div>
+								</div>
+								<!-- /.card-body -->
+
+								<div class="card-footer">
+									<button type="submit" class="btn btn-primary">Guardar</button>
+								</div>
+
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script>
+		// Add the following code if you want the name of the file appear on select
+		$(".custom-file-input").on("change", function () {
+			var fileName = $(this).val().split("\\").pop();
+			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+		});
+	</script>
+
+	<div th:insert="layout/footer :: footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<div class="header" th:fragment="nav">
+	<div class="container">
+		<div class="row">
+			<div>
+				
+					<div class="logo">
+						<a href="../index"><img src="../Images/IndigoLogo.png" alt="" /></a>
+					</div>
+					<div class="menu" >
+						
+						<div class="login_button">
+						<a href="../login" th:if="${session.usuario==null}">Iniciar sesion</a>
+					</div>
+						 <script type="text/javascript" src="../js/responsive-nav.js"></script> 
+					</div>
+					
+				</div>
+				
+
+					<div class="prueba2">
+						<div class="login_button"><a href="/logout"   th:if="${session.usuario != null}" class="btn btn-primary">Salir</a></div>
+						<div class="login_button"><a th:href="@{/usuario/modificar-usuario?id={id}(id=${session.usuario.id})}" th:if="${session.usuario!=null}" class="btn btn-primary ">Modifica tus datos</a></div>
+						<div class="login_button"> <a class="login_button" th:if="${session.usuario != null}" th:text="${session.usuario.nombre}"></a></div>
+					</div>
+					
+					
+					
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				</ul>
+				</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

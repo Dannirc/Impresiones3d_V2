@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>Indigo.crea.ar</title>
+<link href="../css/footer.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="dist/bs-custom-file-input.js"></script>
+<link href="../css/style.css" rel="stylesheet">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="../js/jquery.min.js"></script>
+<!-- <script src="/static/js/jquery.easydropdown.js"></script> -->
+<!--start slider -->
+<link rel="stylesheet" href="../css/fwslider.css" media="all">
+<script src="../js/jquery-ui.min.js"></script>
+<script src="../js/fwslider.js"></script>
+<!--end slider -->
+
+
+<body>
+	<div th:insert="layout/header :: nav"></div>
+
+<div class="container">
+        <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-auto bg-light p-5">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Cargar Presupuesto</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form>
+                             <div class="card-body">
+                             
+                            <div class="form-group">
+                                <label for="selectMaterial">Seleccione un pedido</label>
+                                <select class="form-control" id="selectMaterial">
+                                    <option th:each="Pedido: ${listaPedidos}" th:text="${Pedido.usuario}" th:value="${Pedido.id}"> </option</option>
+                                   
+                                </select>
+         
+                            </div>
+                                                                          
+                         
+                               <div class="form-group">
+                                <label for="PorcentajeDeRelleno">Precio</label>
+                                <input type="text" class="form-control" id="Precio" placeholder="">
+                            </div>
+                                   <div class="form-group">
+                                <label for="PorcentajeDeRelleno">Plazo de entrega</label>
+                                <input type="text" class="form-control" id="Plazo de entrega" placeholder="">
+                            </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+<div th:insert="layout/footer :: footer"></div>
+</body>
+
+</html>

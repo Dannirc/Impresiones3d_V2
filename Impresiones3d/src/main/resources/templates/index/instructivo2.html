@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Indigo.crea.ar</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link href="../css/instructivo.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/footer.css" rel="stylesheet">
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js "></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+</head>
+<body>
+
+	<!-- <div th:insert="layout/header :: nav"></div> -->
+	
+	<div class="header" th:fragment="nav">
+	<div class="container">
+		<div class="row">
+			<div>
+				
+					<div class="logo">
+						<a href="../index"><img src="../Images/IndigoLogo.png" alt="" /></a>
+					</div>
+					<div class="prueba3" >
+						
+						<div class="login_button">
+						<a href="../login" th:if="${session.usuario==null}">Iniciar sesion</a>
+					</div>
+						<!--<script type="text/javascript" src="../js/responsive-nav.js"></script>-->
+					</div>
+				<!--	<div class="clear"></div> -->
+			</div>
+				
+
+				<div class="prueba2">
+						<div class="login_button"><a href="/logout"   th:if="${session.usuario != null}" class="btn btn-primary">Salir</a></div>
+						<div class="login_button"><a th:href="@{/usuario/modificar-usuario?id={id}(id=${session.usuario.id})}" th:if="${session.usuario!=null}" class="btn btn-primary ">Modifica tus datos</a></div>
+						<div class="login_button"> <a class="login_button" th:if="${session.usuario != null}" th:text="${session.usuario.nombre}"></a></div>
+				</div>	
+					
+					
+					
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				</ul>
+				</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+	<div class="container mb-5">
+		<div class="text-center mt-5">
+			<h1>Instructivo</h1>
+			<br>
+		</div>
+		<div class="card-deck">
+			<div class="card">
+				<img class="card-img-top" src="../Images/subir.png"
+					alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title font-weight-bold text-center">Cotizar un
+						pedido</h4>
+					<br>
+					<h5 class="card-title font-weight-bold">Cargue un Archivo</h5>
+					<p class="card-text">Registrese y cargue un archivo 3D en
+						formato .stl en la base de datos.</p>
+					<br>
+					<h5 class="card-title font-weight-bold">Establezca
+						configuraciones</h5>
+					<p class="card-text">Ingrese los parametros requeridos para la
+						fabricacion de su pieza</p>
+					<br>
+					<h5 class="card-title font-weight-bold">Confirme Pedido</h5>
+					<p class="card-text">Seleccione el metodo de entrega del
+						producto y confirme su pedido</p>
+					<br>
+				</div>
+			</div>
+			<div class="card">
+				<img class="card-img-top" src="../Images/confirmar.jpg"
+					alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title font-weight-bold text-center">Presupuesto</h4>
+					<br>
+					<h5 class="card-title font-weight-bold">Confirmar Presupuesto</h5>
+					<p class="card-text">El técnico descargará su archivo y creará
+						el presupuesto en base a sus configuraciones establecidas, luego ingrese en la seccion lista de presupuestos
+						para confirmar o rechazar</p>
+				</div>
+			</div>
+			<div class="card">
+				<img class="card-img-top" src="../Images/delivery.png"
+					alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title font-weight-bold text-center">Producto Terminado</h4>
+					<br>
+					<h5 class="card-title font-weight-bold">Entrega del Producto</h5>
+					<p class="card-text">Luego de aceptar el presupuesto, comienza el proceso de fabricacion de su pieza, 
+					la cual sera entregada en la fecha establecida (Puede consultar el estado de su producto en el listado de compras)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:insert="layout/footer :: footer"></div>
+
+
+</body>
+</html>

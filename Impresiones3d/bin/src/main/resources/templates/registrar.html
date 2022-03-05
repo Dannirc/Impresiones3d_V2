@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Indigo.crea.ar | Registrar Usuario</title>
+
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="../adminlte-3.0.4/plugins/fontawesome-free/css/all.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="../adminlte-3.0.4/css/adminlte.min.css">
+
+	<!-- header -->
+	<!--   <link href="../css/bootstrap.css" rel="stylesheet"> -->
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/footer.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="../js/jquery.min.js"></script>
+	<!-- <script src="/static/js/jquery.easydropdown.js"></script> -->
+	<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+
+</head>
+
+<body>
+	<div th:insert="layout/header :: nav"></div>
+	<div class="register-page" style="min-height: 570.391px;">
+		<div class="register-box">
+
+			<div class="card">
+				<div class="card-body register-card-body">
+					<p class="login-box-msg">Registrarse!</p>
+					<div th:if="${exito}!=null" class="card text-white bg-success mb-3">
+						<div class="card-body">
+							<h5 class="card-title">Exito</h5>
+							<p class="card-text">Registro Exitoso</p>
+						</div>
+					</div>
+					<div th:if="${error}!=null" class="card text-white bg-danger mb-3">
+						<div class="card-body">
+							<h5 class="card-title">Error</h5>
+							<p class="card-text" th:text="${error}"></p>
+						</div>
+					</div>
+
+					<form th:action="@{/usuario/registro}" method="post">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Nombre" name="nombre">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-user"></span>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Dirección" name="direccion">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-envelope"></span>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Telefono" name="telefono">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-envelope"></span>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							<input type="email" class="form-control" placeholder="Email" name="email">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-envelope"></span>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							<input type="password" class="form-control" placeholder="Contraseña" name="clave">
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-lock"></span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Rol</label>
+							<select class="form-control" name="rol">
+								<option th:each="rol : ${T(com.EggEducacion.Impresiones3d.enums.Rol).values()}"
+									th:value="${rol}" th:text="${rol}"></option>
+							</select>
+
+						</div>
+						<button type="submit" class="btn btn-primary">Registrarse</button>
+					</form>
+
+					<a href="@{/}" class="text-center">Ya estoy registrado</a>
+				</div>
+				<!-- /.form-box -->
+			</div><!-- /.card -->
+		</div>
+		<!-- /.register-box -->
+	</div>
+	<!-- jQuery -->
+	<script src="../adminlte-3.0.4/plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../adminlte-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../adminlte-3.0.4/dist/js/adminlte.min.js"></script>
+
+	<div th:insert="layout/footer :: footer"></div>
+
+</body>
+
+</html>
